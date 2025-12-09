@@ -21,7 +21,6 @@ const Hero = () => {
             TRUSTED LOGISTICS PARTNER
           </p>
 
-          {/* Main Heading */}
           <h1
             className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white animate-slide-in-left"
             style={{ animationDelay: '0.2s' }}
@@ -31,7 +30,6 @@ const Hero = () => {
             with One Global Consolidators
           </h1>
 
-          {/* Subtext */}
           <p
             className="font-body text-lg md:text-xl text-gray-100 mb-8 animate-slide-in-left"
             style={{ animationDelay: '0.4s' }}
@@ -56,8 +54,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
