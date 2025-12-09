@@ -45,7 +45,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-black font-body transition-colors"
+              className="border-white text-Black hover:bg-white hover:text-black font-body transition-colors"
             >
               Contact Us
             </Button>
