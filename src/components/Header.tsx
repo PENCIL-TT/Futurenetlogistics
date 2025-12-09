@@ -14,7 +14,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full">
+    /* CHANGE 1: Added 'sticky top-0 z-50' to the main header wrapper.
+       Added 'shadow-md' here so the shadow appears below the whole block.
+    */
+    <header className="w-full sticky top-0 z-50 shadow-md">
+      
       {/* Top Bar */}
       <div className="bg-primary py-2 px-4">
         <div className="container mx-auto flex justify-between items-center text-primary-foreground text-sm">
@@ -38,7 +42,8 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="bg-background shadow-md sticky top-0 z-50">
+      {/* CHANGE 2: Removed 'sticky top-0 z-50 shadow-md' from here */}
+      <nav className="bg-background">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
