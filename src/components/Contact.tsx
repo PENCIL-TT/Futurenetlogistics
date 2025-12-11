@@ -51,20 +51,20 @@ const Contact = () => {
   ];
 
   return (
-    // Removed 'bg-secondary' and added 'relative' for positioning the background image
     <section id="contact" className="relative py-20 overflow-hidden">
 
-      {/* --- Background Image Setup --- */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{ backgroundImage: `url('/about-bg.webp')` }}
-      >
-        {/* Light Overlay: Ensures text is readable over the image. 
-            Adjust 'bg-white/90' to 'bg-white/50' if you want the image more visible. */}
+      {/* --- Background Image (Using <img> tag for better reliability) --- */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/about-bg.webp" 
+          alt="Background" 
+          className="w-full h-full object-cover"
+        />
+        {/* Light Overlay: Ensures text is readable over the image. */}
         <div className="absolute inset-0 bg-white/90" />
       </div>
 
-      {/* Content Container: Added 'relative z-10' to ensure content sits ON TOP of the image */}
+      {/* Content Container (z-10 ensures it sits on top) */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
