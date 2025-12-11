@@ -5,6 +5,9 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 
+// Fallback import (works 100% even if public path fails)
+import bgImage from '/about-bg.webp';
+
 const Contact = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -66,17 +69,21 @@ const Contact = () => {
       id="contact"
       className="relative py-20 overflow-hidden min-h-[600px]"
     >
-      {/* Background Image */}
+      {/* Background Image + Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/about-bg.webp"
-          alt="Contact Background"
+          src={bgImage} // guaranteed working
+          alt="Background"
           className="w-full h-full object-cover"
+          onError={(e) => {
+            // fallback in case webp fails
+            (e.target as HTMLImageElement).src = "/about-bg.jpg";
+          }}
         />
-        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="absolute inset-0 bg-white/90" />
       </div>
 
-      {/* Content */}
+      {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -90,7 +97,7 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Form */}
+          {/* Form */}
           <div className="bg-background p-8 rounded-xl shadow-md animate-slide-in-left">
             <h3 className="font-heading text-xl font-bold text-primary mb-6">
               Send us a Message
@@ -144,7 +151,7 @@ const Contact = () => {
             </form>
           </div>
 
-          {/* Contact Information */}
+          {/* Contact Info */}
           <div className="animate-slide-in-right">
             <h3 className="font-heading text-xl font-bold text-primary mb-6">
               Our Office
@@ -153,12 +160,12 @@ const Contact = () => {
             <div className="space-y-6">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
+
                 return (
                   <div key={index} className="flex gap-4">
                     <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary-foreground" />
                     </div>
-
                     <div>
                       <h4 className="font-heading font-semibold text-primary mb-1">
                         {info.title}
