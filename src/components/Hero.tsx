@@ -1,42 +1,46 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, User, Users, Locate, Ship } from 'lucide-react';
+import { ArrowRight, User, Users, Crosshair, Ship } from 'lucide-react';
 
-// --- Component for Long & Sleek Navigation Bar ---
+// --- Component: Dark Navy Navigation Bar ---
 const HeroNavButtons = () => {
   const buttons = [
     { icon: User, label: 'Customer Portal', href: '/customer-portal' },
     { icon: Users, label: 'Partner Portal', href: '/partner-portal' },
-    { icon: Locate, label: 'Tracking', href: '/tracking' },
+    { icon: Crosshair, label: 'Tracking', href: '/tracking' }, // Changed icon to Crosshair to match image
     { icon: Ship, label: 'Sailing Schedule', href: '/sailing-schedule' },
   ];
 
   return (
-    // Positioned at the bottom, overlapping the hero image slightly
-    <div className="absolute bottom-10 left-0 right-0 z-20 hidden md:block">
+    // Position: Bottom of Hero, centered
+    <div className="absolute bottom-12 left-0 right-0 z-20 hidden md:block">
       <div className="container mx-auto px-4">
         
-        {/* The Bar Container: Spans full width of container, but keeps height sleek */}
-        <div className="w-full bg-navy-dark/90 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+        {/* Width Constraint: Matches the 'floating bar' look, not full screen width */}
+        <div className="max-w-5xl mx-auto">
           
-          <div className="flex flex-row items-center h-16"> {/* Fixed sleek height (h-16 = 64px) */}
+          {/* Main Bar: Dark Navy, Rounded, Glass Effect */}
+          <div className="flex w-full bg-slate-900/90 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
             
             {buttons.map((button, index) => (
               <a
                 key={index}
                 href={button.href}
                 className={`
-                  flex-1 flex items-center justify-center space-x-3 h-full
+                  relative flex-1 h-[80px] flex items-center justify-center space-x-4
                   transition-all duration-300 ease-in-out
-                  hover:bg-white/10 group cursor-pointer
-                  // Add subtle vertical dividers
+                  hover:bg-white/5 cursor-pointer group
+                  
+                  // Vertical Divider: Adds a border to the right of every item EXCEPT the last one
                   ${index !== buttons.length - 1 ? 'border-r border-white/10' : ''}
                 `}
               >
-                {/* Icon - Scaled down slightly to fit the sleek bar */}
-                <button.icon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors duration-300" />
+                {/* Icon Wrapper: Circle with slight transparency */}
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-gray-300 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                  <button.icon className="w-5 h-5" />
+                </div>
 
-                {/* Text - Adjusted size for better proportion */}
-                <span className="text-white font-body font-medium text-sm md:text-base tracking-wide group-hover:text-white transition-colors">
+                {/* Text Label */}
+                <span className="text-white font-body font-medium text-lg tracking-wide group-hover:text-accent transition-colors">
                   {button.label}
                 </span>
               </a>
@@ -52,18 +56,20 @@ const HeroNavButtons = () => {
 // --- Main Hero Component ---
 const Hero = () => {
   return (
-    <section id="home" className="relative h-[600px] md:h-[750px] overflow-hidden">
+    <section id="home" className="relative h-[600px] md:h-[800px] overflow-hidden">
 
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/Hero01.jpg')` }}
       >
+        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy/80 to-navy/30" />
       </div>
 
-      {/* Content */}
-      <div className="relative container mx-auto px-4 h-full flex items-center pb-24">
+      {/* Content Area */}
+      {/* Added extra padding-bottom (pb-32) so content doesn't overlap the nav bar */}
+      <div className="relative container mx-auto px-4 h-full flex items-center pb-32">
         <div className="max-w-2xl text-left">
           <p className="font-body text-accent font-semibold mb-4 animate-fade-in tracking-wider">
             TRUSTED LOGISTICS PARTNER
@@ -94,7 +100,7 @@ const Hero = () => {
             <Button 
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-black font-body transition-colors"
+              className="border-white text-black hover:bg-white hover:text-black font-body transition-colors"
             >
               Contact Us
             </Button>
@@ -102,7 +108,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Insert Navigation Bar */}
       <HeroNavButtons />
 
     </section>
