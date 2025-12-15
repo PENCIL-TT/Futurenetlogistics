@@ -1,4 +1,7 @@
-return (
+import React from 'react';
+
+const CoreValues = () => {
+  return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         {/* Header Section */}
@@ -76,3 +79,6 @@ return (
       </div>
     </section>
   );
+};
+
+export default CoreValues;
