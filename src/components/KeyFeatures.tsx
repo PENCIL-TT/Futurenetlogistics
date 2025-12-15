@@ -50,6 +50,7 @@ const KeyFeatures = () => {
           <div className="w-20 h-1 bg-accent mx-auto" />
         </div>
 
+        {/* Features */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pt-10">
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -81,6 +82,16 @@ const KeyFeatures = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* CTA Button */}
+        <div className="mt-24 text-center">
+          <a
+            href="/services"
+            className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            View All Services
+          </a>
         </div>
       </div>
     </section>
