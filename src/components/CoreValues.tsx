@@ -1,5 +1,4 @@
 import React from 'react';
-import { Shield, Target, BookOpen, Lightbulb } from 'lucide-react';
 
 const CoreValues = () => {
   // Data for the top section bullet points
@@ -46,19 +45,12 @@ const CoreValues = () => {
         </div>
 
         {/* --- BOTTOM SECTION: Core Values Grid --- */}
-        {/* Layout: Column 1 (Cards) | Column 2 (Tall Image) | Column 3 (Cards) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
           {/* Left Column: 2 Cards */}
           <div className="flex flex-col justify-between gap-8 h-full">
-            <ValueCard 
-              icon={Target} 
-              title="Strive for excellence" 
-            />
-            <ValueCard 
-              icon={Shield} 
-              title="Open & honest relationship with communications" 
-            />
+            <ValueCard title="Strive for excellence" />
+            <ValueCard title="Open & honest relationship with communications" />
           </div>
 
           {/* Center Column: Tall Image */}
@@ -72,14 +64,8 @@ const CoreValues = () => {
 
           {/* Right Column: 2 Cards */}
           <div className="flex flex-col justify-between gap-8 h-full">
-            <ValueCard 
-              icon={BookOpen} 
-              title="Adapt, learn & assimilate the best industry practices" 
-            />
-            <ValueCard 
-              icon={Lightbulb} 
-              title="Embrace innovation" 
-            />
+            <ValueCard title="Adapt, learn & assimilate the best industry practices" />
+            <ValueCard title="Embrace innovation" />
           </div>
 
         </div>
@@ -88,16 +74,41 @@ const CoreValues = () => {
   );
 };
 
-// Reusable Card Component to match the design in the image
-// (White box, border, centered icon in circle, text below)
-const ValueCard = ({ icon: Icon, title }: { icon: any, title: string }) => (
+// --- Custom Icon Component to match the Image (Red 'C' in Blue Ring) ---
+const CompanyLogoIcon = () => (
+  <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Dark Blue Outer Ring */}
+    <circle cx="50" cy="50" r="45" stroke="#1e3a8a" strokeWidth="6" />
+    
+    {/* Red Inner 'C' / Hexagon Shape */}
+    <path 
+      d="M65 35 L45 35 L35 50 L45 65 L65 65" 
+      stroke="#e11d48" 
+      strokeWidth="8" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+      fill="none"
+    />
+    <path 
+      d="M65 35 L70 42" 
+      stroke="#e11d48" 
+      strokeWidth="8" 
+      strokeLinecap="round" 
+    />
+     <path 
+      d="M65 65 L70 58" 
+      stroke="#e11d48" 
+      strokeWidth="8" 
+      strokeLinecap="round" 
+    />
+  </svg>
+);
+
+// --- Reusable Card Component ---
+const ValueCard = ({ title }: { title: string }) => (
   <div className="bg-white border-2 border-gray-200 rounded-xl p-8 flex flex-col items-center text-center justify-center h-full hover:shadow-lg transition-shadow duration-300 min-h-[220px]">
-    <div className="mb-6 relative">
-      {/* Circle Ring */}
-      <div className="w-20 h-20 rounded-full border-4 border-gray-900 flex items-center justify-center">
-        {/* Inner Icon styling to look like the 'C' logo */}
-        <Icon className="w-8 h-8 text-rose-600" strokeWidth={2.5} />
-      </div>
+    <div className="mb-6">
+      <CompanyLogoIcon />
     </div>
     <h3 className="font-bold text-gray-800 text-lg leading-tight px-2">
       {title}
