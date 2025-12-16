@@ -10,6 +10,13 @@ const CoreValues = () => {
     "Real time business intelligence and reporting"
   ];
 
+  const values = [
+    'Strive for excellence',
+    'Adapt, learn & assimilate the best industry practices',
+    'Open & honest relationship with communications',
+    'Embrace innovation',
+  ];
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -44,32 +51,13 @@ const CoreValues = () => {
           </div>
         </div>
 
-        {/* --- BOTTOM SECTION: UPDATED to match image_1.png --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          
-          {/* Left Column: 2 Cards */}
-          <div className="flex flex-col gap-8 w-full">
-            <ValueCard title="Strive for excellence" />
-            <ValueCard title="Open & honest relationship with communications" />
-          </div>
-
-          {/* Center Column: Square Warehouse Image */}
-          {/* Changed from tall vertical image to a square aspect ratio with warehouse content */}
-          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-xl relative">
-             <img 
-              src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1000&auto=format&fit=crop" 
-              alt="Warehouse Interior" 
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Right Column: 2 Cards */}
-          <div className="flex flex-col gap-8 w-full">
-            <ValueCard title="Adapt, learn & assimilate the best industry practices" />
-            <ValueCard title="Embrace innovation" />
-          </div>
-
+        {/* --- BOTTOM SECTION: Grid of 4 Cards (Image removed) --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {values.map((title, index) => (
+             <ValueCard key={index} title={title} />
+          ))}
         </div>
+
       </div>
     </section>
   );
@@ -92,13 +80,13 @@ const CompanyLogoIcon = () => (
   </svg>
 );
 
-// --- Reusable Card Component (Adjusted height for better stacking) ---
+// --- Reusable Card Component ---
 const ValueCard = ({ title }: { title: string }) => (
-  <div className="bg-white border-2 border-gray-100 rounded-xl p-8 flex flex-col items-center text-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300 py-12">
+  <div className="bg-white border-2 border-gray-100 rounded-xl p-8 flex flex-col items-center text-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300 py-12 min-h-[250px]">
     <div className="mb-6">
       <CompanyLogoIcon />
     </div>
-    <h3 className="font-bold text-gray-800 text-lg leading-tight px-4 max-w-xs">
+    <h3 className="font-bold text-gray-800 text-lg leading-tight px-4">
       {title}
     </h3>
   </div>
