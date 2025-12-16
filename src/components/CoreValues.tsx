@@ -14,7 +14,7 @@ const CoreValues = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         
-        {/* --- TOP SECTION: Text & Map Image --- */}
+        {/* --- TOP SECTION: Text & Map Image (Unchanged) --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
           {/* Left: Text Content */}
           <div className="space-y-6">
@@ -44,26 +44,27 @@ const CoreValues = () => {
           </div>
         </div>
 
-        {/* --- BOTTOM SECTION: Core Values Grid --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* --- BOTTOM SECTION: UPDATED to match image_1.png --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           
           {/* Left Column: 2 Cards */}
-          <div className="flex flex-col justify-between gap-8 h-full">
+          <div className="flex flex-col gap-8 w-full">
             <ValueCard title="Strive for excellence" />
             <ValueCard title="Open & honest relationship with communications" />
           </div>
 
-          {/* Center Column: Tall Image */}
-          <div className="h-full min-h-[400px] rounded-2xl overflow-hidden shadow-xl">
+          {/* Center Column: Square Warehouse Image */}
+          {/* Changed from tall vertical image to a square aspect ratio with warehouse content */}
+          <div className="w-full aspect-square rounded-2xl overflow-hidden shadow-xl relative">
              <img 
-              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop" 
-              alt="Truck Logistics" 
-              className="w-full h-full object-cover"
+              src="https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=1000&auto=format&fit=crop" 
+              alt="Warehouse Interior" 
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
 
           {/* Right Column: 2 Cards */}
-          <div className="flex flex-col justify-between gap-8 h-full">
+          <div className="flex flex-col gap-8 w-full">
             <ValueCard title="Adapt, learn & assimilate the best industry practices" />
             <ValueCard title="Embrace innovation" />
           </div>
@@ -74,13 +75,10 @@ const CoreValues = () => {
   );
 };
 
-// --- Custom Icon Component to match the Image (Red 'C' in Blue Ring) ---
+// --- Custom Icon Component (Unchanged) ---
 const CompanyLogoIcon = () => (
   <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Dark Blue Outer Ring */}
     <circle cx="50" cy="50" r="45" stroke="#1e3a8a" strokeWidth="6" />
-    
-    {/* Red Inner 'C' / Hexagon Shape */}
     <path 
       d="M65 35 L45 35 L35 50 L45 65 L65 65" 
       stroke="#e11d48" 
@@ -89,28 +87,18 @@ const CompanyLogoIcon = () => (
       strokeLinejoin="round"
       fill="none"
     />
-    <path 
-      d="M65 35 L70 42" 
-      stroke="#e11d48" 
-      strokeWidth="8" 
-      strokeLinecap="round" 
-    />
-     <path 
-      d="M65 65 L70 58" 
-      stroke="#e11d48" 
-      strokeWidth="8" 
-      strokeLinecap="round" 
-    />
+    <path d="M65 35 L70 42" stroke="#e11d48" strokeWidth="8" strokeLinecap="round" />
+     <path d="M65 65 L70 58" stroke="#e11d48" strokeWidth="8" strokeLinecap="round" />
   </svg>
 );
 
-// --- Reusable Card Component ---
+// --- Reusable Card Component (Adjusted height for better stacking) ---
 const ValueCard = ({ title }: { title: string }) => (
-  <div className="bg-white border-2 border-gray-200 rounded-xl p-8 flex flex-col items-center text-center justify-center h-full hover:shadow-lg transition-shadow duration-300 min-h-[220px]">
+  <div className="bg-white border-2 border-gray-100 rounded-xl p-8 flex flex-col items-center text-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300 py-12">
     <div className="mb-6">
       <CompanyLogoIcon />
     </div>
-    <h3 className="font-bold text-gray-800 text-lg leading-tight px-2">
+    <h3 className="font-bold text-gray-800 text-lg leading-tight px-4 max-w-xs">
       {title}
     </h3>
   </div>
