@@ -2,65 +2,83 @@ import React from 'react';
 import { CheckCircle } from 'lucide-react';
 
 const About = () => {
-  const highlights = [
-    'Licensed freight forwarding company',
-    'Expert team with decades of experience',
-    'Global network spanning 50+ countries',
-    'Competitive rates with no hidden charges',
+  // Extracted key features based on the new content provided
+  const features = [
+    'Global NVOCC Operator',
+    'LCL Consolidation Experts',
+    'Transparent Pricing',
+    'Dedicated Trade Lanes',
+    'Secured End-to-End Services',
+    'Trusted Agent Network',
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Reduced lg:gap-20 to lg:gap-12 to bring text closer to the now-larger image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12 items-center">
           
-          {/* Image Section */}
-          <div className="relative animate-fade-in">
+          {/* Image Section - Left Side */}
+          {/* Added negative margins and increased width on LG screens to pull image left and make it bigger */}
+          <div className="relative animate-fade-in group lg:-ml-16 lg:w-[110%] z-10">
             <img
-              src="/About01.png"
-              alt="About One Global Consolidators"
-              className="w-full h-auto object-cover rounded-xl relative"
+              src="/cargo-ship.png"
+              alt="One Global Logistics Container Ship"
+              // Updated classes:
+              // 1. lg:w-[110%]: Makes image wider than its container on large screens
+              // 2. max-w-none: Allows the image to exceed standard width constraints
+              // 3. object-cover: Forces image to fill space, removing side gaps (instead of object-contain)
+              className="w-full lg:w-[110%] max-w-none h-auto object-cover transform transition-transform duration-700 hover:scale-105"
               style={{
-                filter: "drop-shadow(0px 25px 60px rgba(0, 102, 255, 0.45))"
+                filter: "drop-shadow(0px 10px 30px rgba(0,0,0,0.15))" // Slightly stronger shadow for bigger image
               }}
             />
           </div>
 
-          {/* Text Section */}
-          <div>
-            <div className="text-center lg:text-left mb-8">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
-                ABOUT US
+          {/* Text Section - Right Side */}
+          {/* Added relative z-20 to ensure text stays on top if image overlaps slightly */}
+          <div className="relative z-20">
+            <div className="mb-8">
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Drive Your Business <br />
+                Forward with <span className="text-red-700">OGL</span>
               </h2>
-
-              <div className="w-20 h-1 bg-accent mx-auto lg:mx-0 mb-6" />
-            </div>
-
-            <div className="text-center lg:text-left">
-              <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
-                One Global Logistics services W.L.L is a Qatar based global NVOCC (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide markets. We at OGL has a well experienced and established team with relevant experience in their own dedicated trade lanes supports our customers with all their special requirements with complete dedication and transparency.
+              
+              {/* Primary Description */}
+              <p className="font-body text-base md:text-lg text-gray-600 leading-relaxed mb-6">
+                One Global Logistics services W.L.L is a Qatar based global NVOCC (Non-vessel owned common carrier) 
+                operator providing LCL consolidation services worldwide. We have a well-experienced and 
+                established team with relevant expertise in dedicated trade lanes, supporting our customers 
+                with all their special requirements with complete dedication.
               </p>
 
-              <p className="font-body text-lg text-muted-foreground leading-relaxed mb-10">
-                Our commitment to honest, transparent business practice and pricing, backed by a network of experienced and trusted agents, from around the world, makes us one of the fast-growing consolidators based at Qatar. We are well positioned to manage your LCL business with full attention. We aimed at providing the secured end to end LCL services to the Freight Forwarding /Logistics Companies in Qatar, whereas we ensure to maintain the trust and not entertain direct customer business.
+              {/* Secondary Description */}
+              <p className="font-body text-base md:text-lg text-gray-600 leading-relaxed mb-8">
+                Our commitment to honest, transparent business practice and pricing, backed by a network of 
+                experienced and trusted agents from around the world, makes us one of the fast-growing 
+                consolidators based in Qatar. We aim to provide secured end-to-end LCL services 
+                exclusively to Freight Forwarding & Logistics Companies.
               </p>
 
-              {/* Highlights */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {highlights.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 p-4 bg-secondary rounded-lg animate-fade-in text-left"
+              {/* Feature Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-10">
+                {features.map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="flex items-center gap-3 animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
-                    <span className="font-body text-foreground">{item}</span>
+                    <CheckCircle className="w-5 h-5 text-red-600 flex-shrink-0 fill-red-50" />
+                    <span className="font-body text-gray-700 font-medium">{item}</span>
                   </div>
                 ))}
               </div>
 
+              {/* Call to Action Button */}
+              <button className="bg-red-700 text-white font-semibold py-3 px-10 rounded-full hover:bg-red-800 transition-colors duration-300 shadow-lg shadow-red-700/20">
+                Read More
+              </button>
             </div>
           </div>
 
