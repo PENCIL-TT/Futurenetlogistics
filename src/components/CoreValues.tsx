@@ -28,9 +28,9 @@ const CoreValues = () => {
     <section className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
-          <p className="font-body text-accent font-semibold tracking-wider mb-2">CORE VALUES SEGMENT</p>
+          <p className="font-body text-accent font-semibold tracking-wider mb-2">OGL - Digital Logistics</p>
           <p className="font-body text-muted-foreground max-w-3xl mx-auto">
-            We are a true client-centric company so we strive with the client's business instead of just selling logistics/freight forwarding services. We invest in innovation to stay ahead of the challenges facing the shipping industry and are backed by strong financial stability.
+            It's our solution-based logistics services couple with the best technology that makes us standout. We belive in providing the right services using the right tools at the right time.
           </p>
         </div>
 
