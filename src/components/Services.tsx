@@ -203,10 +203,10 @@ const ServicesScroll = () => {
           <span className="text-sm uppercase tracking-widest text-orange-400">
             What We Offer
           </span>
-          <h2 className="text-4xl font-bold mt-2 text-white">
+          <h2 className="text-4xl font-bold mt-2 text-black">
             Explore Our Services
           </h2>
-          <p className="text-gray-200 text-sm mt-3 max-w-xl mx-auto">
+          <p className="text-black-200 text-sm mt-3 max-w-xl mx-auto">
             Reliable, scalable and technology-driven logistics solutions.
           </p>
         </div>
