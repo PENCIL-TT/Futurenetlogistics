@@ -41,7 +41,8 @@ const VisionMission = () => {
               </h3>
             </div>
             <p className="font-body text-white/90 leading-relaxed text-lg">
-              OGL to be Forwarders first choice for  :FCL, LCL, Air Freight ,Freight Management Services.  
+              OGL to be Forwarders first choice for :
+              FCL, LCL, Air Freight ,Freight Management Services.  
             </p>
           </div>
 
