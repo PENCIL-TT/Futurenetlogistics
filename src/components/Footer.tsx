@@ -20,11 +20,8 @@ const Footer = () => {
   const quickLinks = [
     { name: "Home", id: "home" },
     { name: "About Us", id: "about" },
-    { name: "Global Network", id: "global" },
     { name: "Key Features", id: "services" },
     { name: "Vision & Mission", id: "vision" },
-    { name: "Core Values", id: "core" },
-    { name: "Value Propositions", id: "value" },
     { name: "Contact Us", id: "contact" },
   ];
 
