@@ -7,7 +7,6 @@ import {
 } from 'lucide-react';
 
 const CoreValues = () => {
-  // Top bullet points
   const bulletPoints = [
     "Integrated multi logistics platforms",
     "Live end to end supply chain visibility",
@@ -16,7 +15,6 @@ const CoreValues = () => {
     "Real time business intelligence and reporting",
   ];
 
-  // Core values
   const values = [
     {
       title: 'Strive for excellence',
@@ -41,27 +39,36 @@ const CoreValues = () => {
       <div className="container mx-auto px-4">
 
         {/* TOP CONTENT */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
-          {/* LEFT */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-blue-900">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-24">
+
+          {/* LEFT TEXT */}
+          <div className="space-y-8">
+
+            {/* HEADING — HIGHLIGHTED */}
+            <h3 className="text-2xl md:text-3xl font-extrabold text-blue-900 tracking-tight">
               OGL - Digital Logistics
             </h3>
 
-            <p className="text-gray-600 leading-relaxed">
+            {/* DESCRIPTION */}
+            <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
               It's our solution-based logistics services coupled with the best
               technology that makes us stand out. We believe in providing the
               right services using the right tools at the right time.
             </p>
 
-            <ul className="space-y-3 mt-4">
+            {/* BULLETS */}
+            <ul className="space-y-4 pt-2">
               {bulletPoints.map((point, idx) => (
-                <li key={idx} className="flex items-start text-gray-700">
-                  <span className="mt-2 w-2 h-2 bg-blue-900 rounded-full mr-3 flex-shrink-0" />
+                <li
+                  key={idx}
+                  className="flex items-start text-lg text-gray-800"
+                >
+                  <span className="mt-2 w-2.5 h-2.5 bg-blue-900 rounded-full mr-4 flex-shrink-0" />
                   {point}
                 </li>
               ))}
             </ul>
+
           </div>
 
           {/* RIGHT IMAGE */}
@@ -74,7 +81,7 @@ const CoreValues = () => {
           </div>
         </div>
 
-        {/* CORE VALUES GRID */}
+        {/* CORE VALUES */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((item, index) => (
             <ValueCard
@@ -90,7 +97,6 @@ const CoreValues = () => {
   );
 };
 
-// CARD COMPONENT
 const ValueCard = ({
   title,
   Icon,
@@ -104,7 +110,6 @@ const ValueCard = ({
                shadow-sm hover:shadow-xl hover:-translate-y-2
                transition-all duration-300"
   >
-    {/* ICON */}
     <div
       className="mb-6 w-16 h-16 rounded-full border-2 border-blue-900
                  flex items-center justify-center
@@ -116,7 +121,6 @@ const ValueCard = ({
       />
     </div>
 
-    {/* TITLE — IMAGE MATCH STYLE */}
     <h3 className="text-[#0f2454] font-extrabold text-[20px] leading-[1.3] text-center max-w-[230px]">
       {title}
     </h3>
