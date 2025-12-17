@@ -120,11 +120,22 @@ const Footer = () => {
 
           <div className="flex gap-3">
             {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="text-primary-foreground/60 hover:text-accent transition"
-              >
+                <a 
+              href="https://www.facebook.com/oneglobalqatar" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit our Facebook page"
+              className="hover:text-accent transition-colors"
+            >
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit our LinkedIn page"
+              className="hover:text-accent transition-colors"
+            >
                 <Icon className="w-4 h-4" />
               </a>
             ))}
