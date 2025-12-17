@@ -9,31 +9,38 @@ import {
 } from "lucide-react";
 
 const Footer = () => {
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Global Network", href: "#global" },
-    { name: "Key Features", href: "#services" },
-    { name: "Vision & Mission", href: "#vision" },
-    { name: "Core Values", href: "#core" },
-    { name: "Value Propositions", href: "#value" },
-    { name: "Contact Us", href: "#contact" },
+    { name: "Home", id: "home" },
+    { name: "About Us", id: "about" },
+    { name: "Global Network", id: "global" },
+    { name: "Key Features", id: "services" },
+    { name: "Vision & Mission", id: "vision" },
+    { name: "Core Values", id: "core" },
+    { name: "Value Propositions", id: "value" },
+    { name: "Contact Us", id: "contact" },
   ];
 
   return (
     <footer className="bg-primary text-primary-foreground">
 
-      {/* MAIN FOOTER CONTENT */}
+      {/* MAIN FOOTER */}
       <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {/* ABOUT + LOGO */}
           <div>
-            {/* LOGO ABOVE ABOUT */}
             <img
               src="/onegloballogo.png"
               alt="One Global Logistics"
-              className="h-14 w-auto object-contain mb-4"
+              className="h-14 mb-4"
             />
 
             <h3 className="font-heading font-bold text-base mb-3">
@@ -50,18 +57,19 @@ const Footer = () => {
             <h3 className="font-heading font-bold text-base mb-3">
               Quick Links
             </h3>
+
             <ul className="space-y-1.5">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => scrollToSection(link.id)}
                     className="group flex items-center gap-2 text-sm text-primary-foreground/75 hover:text-accent transition"
                   >
                     <span className="text-accent opacity-0 group-hover:opacity-100 transition">
                       →
                     </span>
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
