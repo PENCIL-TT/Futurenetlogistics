@@ -10,20 +10,21 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
-    { name: "Global Network", href: "#global-network" },
-    { name: "Key Features", href: "#features" },
-    { name: "Vision & Mission", href: "#vision-mission" },
-    { name: "Core Values", href: "#core-values" },
-    { name: "Value Propositions", href: "#value-propositions" },
-    { name: "Contact Us", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "About Us", href: "/#about" },
+    { name: "Global Network", href: "/#global-network" },
+    { name: "Key Features", href: "/#features" },
+    { name: "Vision & Mission", href: "/#vision-mission" },
+    { name: "Core Values", href: "/#core-values" },
+    { name: "Value Propositions", href: "/#value-propositions" },
+    { name: "Contact Us", href: "/#contact" },
   ];
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      {/* LOGO TOP */}
-      <div className="pt-8 flex justify-center">
+
+      {/* LOGO ABOVE CONTENT */}
+      <div className="flex justify-center py-4">
         <img
           src="/onegloballogo.png"
           alt="One Global Logistics"
@@ -32,7 +33,7 @@ const Footer = () => {
       </div>
 
       {/* MAIN FOOTER CONTENT */}
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-6 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {/* ABOUT */}
@@ -97,6 +98,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -120,6 +122,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
     </footer>
   );
 };
