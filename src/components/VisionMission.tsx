@@ -26,7 +26,7 @@ const VisionMission = () => {
               </h3>
             </div>
             <p className="font-body text-white/90 leading-relaxed text-lg">
-              OGC aims to be the leading global logistics provider in freight forwarding services across the globe and beyond by offering well-structured logistics solutions.
+              OGL to be the leading global logistics solution provider through our most advanced systems combined with well experienced logistics professionals.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ const VisionMission = () => {
               </h3>
             </div>
             <p className="font-body text-white/90 leading-relaxed text-lg">
-              To be the preferred logistics partner in PLC, LLC, Air Cargo, and Ship Management Solutions. We are committed to delivering excellence in every shipment.
+              OGL to be Forwarders first choice for  :FCL, LCL, Air Freight ,Freight Management Services.  
             </p>
           </div>
 
