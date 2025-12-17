@@ -53,8 +53,7 @@ const Footer = () => {
 
             <h3 className="font-heading font-bold text-base mb-3">About Us</h3>
             <p className="text-sm text-primary-foreground/75 leading-6">
-              One Global Logistics Services W.L.L is a Qatar based global NVOCC
-              operator providing LCL consolidation services worldwide.
+              One Global Logistics services W.L.L is a Qatar based global NVOCC (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide markets.
             </p>
           </div>
 
