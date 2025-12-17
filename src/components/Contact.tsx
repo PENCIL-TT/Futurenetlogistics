@@ -59,11 +59,6 @@ const Contact = () => {
       title: 'Website',
       lines: ['www.oneglobalqatar.com'],
     },
-    {
-      icon: Clock,
-      title: 'Working Hours',
-      lines: ['Sunday - Thursday', '8:00 AM - 5:00 PM'],
-    },
   ];
 
   return (
