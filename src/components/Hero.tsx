@@ -4,11 +4,12 @@ import { ArrowRight, User, Users, Locate, Ship } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Configuration for the Rotating Headlines ---
+// Using HTML to make "Services" red, like in the example
 const HERO_MESSAGES = [
-  "Cost Effective and Top Quality LCL & FCL Services",
-  "Top-notch Warehousing Services for all your shipments",
-  "Get the Best LCL & FCL Services at Unbeatable Prices",
-  "Get the Best Logistics Service at very competitive prices"
+  "Cost Effective and Top Quality LCL & FCL <span class='text-accent'>Services</span>",
+  "Top-notch Warehousing <span class='text-accent'>Services</span> for all your shipments",
+  "Get the Best LCL & FCL <span class='text-accent'>Services</span> at Unbeatable Prices",
+  "Get the Best Logistics <span class='text-accent'>Service</span> at very competitive prices"
 ];
 
 // --- Navigation Buttons (Unchanged) ---
@@ -99,9 +100,9 @@ const Hero = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white"
-              >
-                {HERO_MESSAGES[index]}
-              </motion.h1>
+                // Use dangerouslySetInnerHTML to render the HTML from HERO_MESSAGES
+                dangerouslySetInnerHTML={{ __html: HERO_MESSAGES[index] }}
+              />
             </AnimatePresence>
           </div>
 
