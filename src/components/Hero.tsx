@@ -3,15 +3,15 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, User, Users, Locate, Ship } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// --- Configuration for the Rotating Text ---
+// --- Configuration for the Rotating Headlines ---
 const HERO_MESSAGES = [
-  "Cost Effective and Top Quality LCL & FCL Services.",
-  "Top-notch warehousing services for all your shipments.",
-  "Get the best LCL & FCL services at unbeatable prices.",
-  "Get the best logistics service at very competitive prices."
+  "Cost Effective and Top Quality LCL & FCL Services",
+  "Top-notch Warehousing Services for all your shipments",
+  "Get the Best LCL & FCL Services at Unbeatable Prices",
+  "Get the Best Logistics Service at very competitive prices"
 ];
 
-// --- Component for Navigation CTA Buttons (Unchanged) ---
+// --- Navigation Buttons (Unchanged) ---
 const HeroNavButtons = () => {
   const buttons = [
     { icon: User, label: 'Customer Portal', url: 'https://consolmate.com/auth/login/9' },
@@ -25,7 +25,6 @@ const HeroNavButtons = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-center items-center">
           <div className="flex bg-navy-dark/30 backdrop-blur-md border border-white/10 rounded-2xl p-2 gap-2">
-            
             {buttons.map((button, index) => (
               <a
                 key={index}
@@ -47,12 +46,10 @@ const HeroNavButtons = () => {
                 </span>
               </a>
             ))}
-
-            {/* Vertical Dividers */}
+            {/* Dividers */}
             <div className="absolute inset-y-2 left-1/4 w-[1px] bg-white/10 pointer-events-none" />
             <div className="absolute inset-y-2 left-2/4 w-[1px] bg-white/10 pointer-events-none" />
             <div className="absolute inset-y-2 left-3/4 w-[1px] bg-white/10 pointer-events-none" />
-
           </div>
         </div>
       </div>
@@ -64,12 +61,11 @@ const HeroNavButtons = () => {
 const Hero = () => {
   const [index, setIndex] = useState(0);
 
-  // Auto-scroll logic: Change text every 4 seconds
+  // Rotate text every 4 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % HERO_MESSAGES.length);
-    }, 4000); 
-
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
@@ -87,34 +83,34 @@ const Hero = () => {
       {/* Content */}
       <div className="relative container mx-auto px-4 h-full flex items-center pb-20">
         <div className="max-w-2xl text-left">
+          
           <p className="font-body text-accent font-semibold mb-4 animate-fade-in tracking-wider">
             TRUSTED LOGISTICS PARTNER
           </p>
 
-          <h1
-            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white animate-slide-in-left"
-            style={{ animationDelay: '0.2s' }}
-          >
-            Get the Best Logistics
-            <span className="text-accent"> Service </span>
-            with One Global Consolidators
-          </h1>
-
-          {/* --- Auto Scrolling Text Area --- */}
-          <div className="h-24 md:h-20 mb-8 overflow-hidden relative">
+          {/* --- ANIMATED HEADLINE SECTION --- */}
+          {/* Min-height ensures buttons don't jump when text length changes */}
+          <div className="min-h-[160px] md:min-h-[200px] flex items-center mb-6">
             <AnimatePresence mode="wait">
-              <motion.p
-                key={index} // Key change triggers the animation
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="font-body text-lg md:text-xl text-gray-100 absolute top-0 left-0"
+              <motion.h1
+                key={index} 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white"
               >
                 {HERO_MESSAGES[index]}
-              </motion.p>
+              </motion.h1>
             </AnimatePresence>
           </div>
+
+          <p
+            className="font-body text-lg md:text-xl text-gray-100 mb-8 animate-slide-in-left"
+            style={{ animationDelay: '0.4s' }}
+          >
+            Your trusted partner for sea and air freight solutions. We deliver excellence across borders with reliability and precision.
+          </p>
 
           <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <a href="/services">
