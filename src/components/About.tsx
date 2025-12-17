@@ -65,10 +65,6 @@ const About = () => {
               </div>
             ))}
           </div>
-
-          <button className="bg-red-700 text-white font-semibold py-3 px-10 rounded-full hover:bg-red-800 transition shadow-lg shadow-red-700/20">
-            Read More
-          </button>
         </div>
 
       </div>
