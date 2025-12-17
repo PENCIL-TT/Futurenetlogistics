@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Menu, X, Phone, Mail, Facebook, Linkedin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
@@ -17,38 +16,30 @@ const Header = () => {
   ];
 
   const scrollToSection = (sectionId: string) => {
-    // If not on home page, navigate to home first then scroll
     if (location.pathname !== '/') {
       navigate('/');
-      // Wait for navigation to complete, then scroll
       setTimeout(() => {
         const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
     } else {
       const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   const handleNavClick = (link: typeof navLinks[0]) => {
     setIsMenuOpen(false);
-    
+
     if (link.isPage) {
       navigate(link.href);
     } else {
-      const sectionId = link.href.replace('#', '');
-      scrollToSection(sectionId);
+      scrollToSection(link.href.replace('#', ''));
     }
   };
 
   return (
     <header className="w-full sticky top-0 z-50 shadow-md">
-      
       {/* Top Bar */}
       <div className="bg-primary py-2 px-4">
         <div className="container mx-auto flex justify-between items-center text-primary-foreground text-sm">
@@ -63,20 +54,18 @@ const Header = () => {
             </a>
           </div>
           <div className="flex items-center gap-3">
-            <a 
-              href="https://www.facebook.com/oneglobalqatar" 
-              target="_blank" 
+            <a
+              href="https://www.facebook.com/oneglobalqatar"
+              target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit our Facebook page"
               className="hover:text-accent transition-colors"
             >
               <Facebook className="w-4 h-4" />
             </a>
-            <a 
-              href="https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true"
+              target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visit our LinkedIn page"
               className="hover:text-accent transition-colors"
             >
               <Linkedin className="w-4 h-4" />
@@ -91,10 +80,10 @@ const Header = () => {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img 
-                src="/onegloballogo.png" 
-                alt="One Global Consolidators Logo" 
-                className="w-16 md:w-24 h-auto" 
+              <img
+                src="/onegloballogo.png"
+                alt="One Global Consolidators Logo"
+                className="w-16 md:w-24 h-auto"
               />
             </Link>
 
@@ -104,7 +93,7 @@ const Header = () => {
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link)}
-                  className="px-4 py-2 font-body text-sm font-medium text-foreground hover:text-accent transition-colors relative group"
+                  className="px-4 py-2 text-sm font-medium text-foreground hover:text-accent transition-colors relative group"
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent transition-all group-hover:w-3/4" />
@@ -129,20 +118,11 @@ const Header = () => {
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link)}
-                  className="block w-full text-left px-4 py-3 font-body text-foreground hover:bg-secondary hover:text-accent transition-colors"
+                  className="block w-full text-left px-4 py-3 text-foreground hover:bg-secondary hover:text-accent transition-colors"
                 >
                   {link.name}
                 </button>
               ))}
-              <Button 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  scrollToSection('contact');
-                }}
-                className="w-full mt-2 bg-accent hover:bg-red-hover text-accent-foreground font-body"
-              >
-                Get a Quote
-              </Button>
             </div>
           )}
         </div>
