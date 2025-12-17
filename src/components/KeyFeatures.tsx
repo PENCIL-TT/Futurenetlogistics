@@ -25,17 +25,7 @@ const KeyFeatures = () => {
   ];
 
   return (
-    <section
-      id="services"
-      className="py-24 relative overflow-hidden"
-      style={{
-        backgroundImage: "url('/team-v3-shape1.png')",
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-      }}
-    >
-      <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-20">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
