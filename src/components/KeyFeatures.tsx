@@ -33,6 +33,16 @@ const ServicesSection = () => {
   return (
     <section className="bg-black py-24 px-4">
       <div className="container mx-auto">
+
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <h2 className="text-white text-3xl md:text-4xl font-bold mb-4">
+            Core <span className="text-green-500">Services</span>
+          </h2>
+          <div className="w-20 h-1 bg-green-500 mx-auto rounded-full"></div>
+        </div>
+
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {services.map((service, idx) => (
             <motion.div
@@ -68,6 +78,7 @@ const ServicesSection = () => {
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
