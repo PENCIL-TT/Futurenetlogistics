@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import GlobalNetwork from '@/components/GlobalNetwork';
-import KeyFeatures from '@/components/KeyFeatures';
+import ServicesSection from '@/components/ServicesSection';
 import VisionMission from '@/components/VisionMission';
 import CoreValues from '@/components/CoreValues';
 import ValuePropositions from '@/components/ValuePropositions';
@@ -16,7 +16,7 @@ const Index = () => {
       <main>
         <Hero />
         <About />
-        <KeyFeatures />
+        <ServicesSection />
         <VisionMission />
         <CoreValues />
         <ValuePropositions />
