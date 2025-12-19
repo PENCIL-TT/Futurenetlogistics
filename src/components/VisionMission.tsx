@@ -5,7 +5,7 @@ const VisionMission = () => {
   return (
     <section id="vision" className="py-20 relative overflow-hidden">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url(${containerShip})` }}
       >
@@ -26,7 +26,8 @@ const VisionMission = () => {
               </h3>
             </div>
             <p className="font-body text-white/90 leading-relaxed text-lg">
-             FUTURE NET, to be the leading global logistics solution provider thru our most advanced systems combined with well experienced logistics professionals.
+              FUTURE NET, to be the leading global logistics solution provider thru our most advanced systems combined with well experienced logistics professionals.
+            </p>
           </div>
 
           {/* Mission Card */}
@@ -40,7 +41,7 @@ const VisionMission = () => {
               </h3>
             </div>
             <p className="font-body text-white/90 leading-relaxed text-lg">
-              FUTURE NET, to be customers first choice for following services : Customised logistics solutions with integrated processes with clients thru our most advanced WMS & distribution module with e-commerce capability. FCL, LCL, Air Freight & Freight Management, Liquid Transportation solutions Projects & Break Bulk.  
+              FUTURE NET, to be customers first choice for following services : Customised logistics solutions with integrated processes with clients thru our most advanced WMS & distribution module with e-commerce capability. FCL, LCL, Air Freight & Freight Management, Liquid Transportation solutions Projects & Break Bulk.
             </p>
           </div>
 
