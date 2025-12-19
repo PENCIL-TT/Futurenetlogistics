@@ -68,20 +68,12 @@ const ServicesSection = () => {
     },
   ];
 
-  const Card = ({ title, slug, icon: Icon, description, index }) => (
+  const ServiceItem = ({ title, slug, icon: Icon, description, index }) => (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="
-        bg-white rounded-3xl
-        shadow-[0_12px_35px_rgba(0,0,0,0.08)]
-        hover:shadow-[0_20px_45px_rgba(34,197,94,0.25)]
-        transition-all duration-300
-        px-10 py-12
-        min-h-[360px]
-        flex flex-col items-center text-center justify-between
-      "
+      className="text-center px-6"
     >
       {/* Icon */}
       <div className="flex justify-center mb-6">
@@ -89,24 +81,19 @@ const ServicesSection = () => {
       </div>
 
       {/* Title */}
-      <h3 className="text-base font-bold text-zinc-900 mb-4 uppercase tracking-wide">
+      <h3 className="text-lg font-bold text-zinc-900 mb-4 uppercase">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-base text-zinc-600 leading-relaxed">
+      <p className="text-base text-zinc-600 leading-relaxed mb-4">
         {description}
       </p>
 
       {/* Read More */}
       <button
         onClick={() => navigate(`/services/${slug}`)}
-        className="
-          mt-8 text-base font-semibold
-          text-green-600 border-b-2 border-green-600
-          hover:text-green-700 hover:border-green-700
-          transition
-        "
+        className="text-base font-semibold text-green-600 hover:underline"
       >
         Read More
       </button>
@@ -114,11 +101,11 @@ const ServicesSection = () => {
   );
 
   return (
-    <section className="bg-white py-28 px-4">
+    <section className="bg-white py-32 px-4">
       <div className="container mx-auto">
 
-        {/* Section Title */}
-        <div className="text-center mb-20">
+        {/* Title */}
+        <div className="text-center mb-24">
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-4">
             Our Services
           </h2>
@@ -126,17 +113,17 @@ const ServicesSection = () => {
         </div>
 
         {/* Row 1 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-24 mb-28">
           {row1.map((item, i) => (
-            <Card key={i} {...item} index={i} />
+            <ServiceItem key={i} {...item} index={i} />
           ))}
         </div>
 
-        {/* Row 2 – Centered */}
+        {/* Row 2 (centered) */}
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-6xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24 max-w-6xl w-full">
             {row2.map((item, i) => (
-              <Card key={i} {...item} index={i + 4} />
+              <ServiceItem key={i} {...item} index={i + 4} />
             ))}
           </div>
         </div>
