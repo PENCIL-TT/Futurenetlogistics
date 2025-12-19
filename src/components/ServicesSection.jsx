@@ -73,23 +73,35 @@ const ServicesSection = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.08 }}
-      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-8 text-center"
+      className="
+        bg-white rounded-2xl
+        shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+        hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]
+        transition-all duration-300
+        p-8
+        min-h-[320px]
+        flex flex-col items-center text-center justify-between
+      "
     >
-      <div className="flex justify-center mb-5">
-        <Icon className="w-10 h-10 text-green-500" />
+      {/* Top Content */}
+      <div>
+        <div className="flex justify-center mb-5">
+          <Icon className="w-10 h-10 text-zinc-800" />
+        </div>
+
+        <h3 className="text-sm font-bold text-zinc-900 mb-3 uppercase">
+          {title}
+        </h3>
+
+        <p className="text-sm text-zinc-600 leading-relaxed">
+          {description}
+        </p>
       </div>
 
-      <h3 className="text-base font-bold text-zinc-900 mb-3 uppercase">
-        {title}
-      </h3>
-
-      <p className="text-sm text-zinc-600 leading-relaxed mb-4">
-        {description}
-      </p>
-
+      {/* Read More */}
       <button
         onClick={() => navigate(`/services/${slug}`)}
-        className="text-green-600 text-sm font-semibold border-b border-green-500 hover:text-green-700"
+        className="mt-6 text-sm font-semibold text-zinc-900 border-b border-zinc-900 hover:text-green-600 hover:border-green-600 transition"
       >
         Read More
       </button>
@@ -101,23 +113,23 @@ const ServicesSection = () => {
       <div className="container mx-auto">
 
         {/* Title */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-3">
             Our Services
           </h2>
-          <div className="w-20 h-1 bg-green-500 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-green-500 mx-auto rounded-full" />
         </div>
 
-        {/* Row 1 */}
+        {/* Row 1 – 4 cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {row1.map((item, i) => (
             <Card key={i} {...item} index={i} />
           ))}
         </div>
 
-        {/* Row 2 - centered */}
+        {/* Row 2 – 3 cards centered */}
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
             {row2.map((item, i) => (
               <Card key={i} {...item} index={i + 4} />
             ))}
