@@ -26,8 +26,7 @@ const VisionMission = () => {
               </h3>
             </div>
             <p className="font-body text-white/90 leading-relaxed text-lg">
-              OGL to be the leading global logistics solution provider through our most advanced systems combined with well experienced logistics professionals.
-            </p>
+             FUTURE NET, to be the leading global logistics solution provider thru our most advanced systems combined with well experienced logistics professionals.
           </div>
 
           {/* Mission Card */}
@@ -41,8 +40,7 @@ const VisionMission = () => {
               </h3>
             </div>
             <p className="font-body text-white/90 leading-relaxed text-lg">
-              OGL to be Forwarders first choice for :
-              FCL, LCL, Air Freight ,Freight Management Services.  
+              FUTURE NET, to be customers first choice for following services : Customised logistics solutions with integrated processes with clients thru our most advanced WMS & distribution module with e-commerce capability. FCL, LCL, Air Freight & Freight Management, Liquid Transportation solutions Projects & Break Bulk.  
             </p>
           </div>
 
