@@ -37,7 +37,7 @@ const ServicesSection = () => {
         {/* Section Title */}
         <div className="text-center mb-16">
           <h2 className="text-white text-3xl md:text-4xl font-bold mb-4">
-            Core <span className="text-green-500">Services</span>
+            Core Services
           </h2>
           <div className="w-20 h-1 bg-green-500 mx-auto rounded-full"></div>
         </div>
