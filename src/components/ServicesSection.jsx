@@ -8,53 +8,70 @@ import {
   Droplet, 
   ArrowRight, 
   Ship,
-  Layers,
-  Headphones
+  Layers
 } from "lucide-react";
 
 const ServicesSection = () => {
   const allServices = [
-    { title: "LCL Services", slug: "lcl", icon: <Ship size={18} />, image: "https://images.unsplash.com/photo-1571141380277-5248b0f1d95a?auto=format&fit=crop&q=80&w=400", desc: "Cost-effective small shipment consolidation." },
-    { title: "FCL Services", slug: "fcl", icon: <Anchor size={18} />, image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400", desc: "Secure full-load container transport." },
-    { title: "Air Freight", slug: "air", icon: <Plane size={18} />, image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=400", desc: "Fast global airport-to-door delivery." },
-    { title: "Project Cargo", slug: "project", icon: <Box size={18} />, image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&q=80&w=400", desc: "Expertise in oversized/heavy cargo." },
-    { title: "Warehousing", slug: "warehouse", icon: <Warehouse size={18} />, image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80&w=400", desc: "Bonded storage & inventory management." },
-    { title: "3PL Solutions", slug: "3pl", icon: <Layers size={18} />, image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=400", desc: "End-to-end supply chain efficiency." },
-    { title: "Liquid Transport", slug: "liquid", icon: <Droplet size={18} />, image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&w=400", desc: "Compliant bulk liquid logistics." },
+    { title: "LCL Services", icon: <Ship size={24} className="text-green-600" />, image: "https://images.unsplash.com/photo-1494412552103-4102ffbf0a9c?auto=format&fit=crop&q=80&w=500", desc: "Logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods." },
+    { title: "FCL Services", icon: <Anchor size={24} className="text-green-600" />, image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=500", desc: "Logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods." },
+    { title: "Air Freight", icon: <Plane size={24} className="text-green-600" />, image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=500", desc: "Logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods." },
+    { title: "Project Cargo", icon: <Box size={24} className="text-green-600" />, image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&q=80&w=500", desc: "Logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods." },
+    { title: "Warehousing", icon: <Warehouse size={24} className="text-green-600" />, image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&q=80&w=500", desc: "Logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods." },
+    { title: "3PL Solutions", icon: <Layers size={24} className="text-green-600" />, image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=500", desc: "Logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods." },
+    { title: "Road Freight", icon: <Truck size={24} className="text-green-600" />, image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=500", desc: "Logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods." },
   ];
 
-  const ServiceItem = ({ title, slug, icon, image, desc, index }) => {
+  const ServiceItem = ({ title, icon, image, desc, index }) => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
 
     useEffect(() => {
       const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) setTimeout(() => setIsVisible(true), index * 50);
+        if (entry.isIntersecting) setIsVisible(true);
       }, { threshold: 0.1 });
       if (ref.current) observer.observe(ref.current);
-      return () => { if (ref.current) observer.unobserve(ref.current); };
-    }, [index]);
+      return () => observer.disconnect();
+    }, []);
 
     return (
       <div
         ref={ref}
-        className={`group relative bg-white rounded-xl overflow-hidden border border-gray-100 flex flex-col transition-all duration-300 hover:shadow-md ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        className={`relative bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] overflow-visible transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="relative aspect-square sm:aspect-video lg:aspect-square overflow-hidden">
-          <img src={image} alt={title} className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" />
-          <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-          <div className="absolute top-2 left-2 w-8 h-8 bg-green-600 text-white rounded-lg flex items-center justify-center shadow-md">
+        {/* Image Container */}
+        <div className="relative h-48 sm:h-56 overflow-hidden">
+          <img 
+            src={image} 
+            alt={title} 
+            className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-500" 
+          />
+        </div>
+
+        {/* Overlapping Icon Box - half-on/half-off image */}
+        <div className="absolute top-[165px] sm:top-[195px] left-6 z-20">
+          <div className="bg-white p-4 shadow-xl border border-gray-100 flex items-center justify-center">
             {icon}
           </div>
         </div>
 
-        <div className="p-3 flex flex-col flex-grow">
-          <h3 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-green-600 transition-colors leading-tight">{title}</h3>
-          <p className="text-[12px] text-gray-500 leading-snug line-clamp-2 mb-2 flex-grow">{desc}</p>
-          <button className="flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-green-600 group-hover:gap-2 transition-all">
-            More <ArrowRight size={12} />
+        {/* Content Section */}
+        <div className="pt-14 p-8">
+          {/* Green Accent Line directly matching image style */}
+          <div className="w-[100%] h-[3px] bg-green-600 mb-6" />
+          
+          <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight">
+            {title}
+          </h3>
+          
+          <p className="text-gray-500 text-sm leading-relaxed mb-6 font-medium">
+            {desc}
+          </p>
+
+          <button className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-900 hover:text-green-600 transition-colors">
+            Read More <ArrowRight size={14} className="text-green-600" />
           </button>
         </div>
       </div>
@@ -62,29 +79,18 @@ const ServicesSection = () => {
   };
 
   return (
-    <section className="bg-white py-12 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-8 border-b border-gray-100 pb-4">
-          <div>
-            <h2 className="text-2xl font-black text-gray-900 tracking-tight">Core Services</h2>
-            <p className="text-xs text-gray-400">Efficient Global Logistics</p>
-          </div>
-          <div className="h-10 w-10 border border-green-100 rounded-full flex items-center justify-center text-green-600">
-            <Truck size={20} />
-          </div>
+    <section className="bg-gray-50 py-20 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header matching the brand style */}
+        <div className="mb-12 border-l-4 border-green-600 pl-5">
+          <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tighter">Our Services</h2>
+          <p className="text-gray-500 text-sm mt-1">Efficient and reliable logistics solutions globally.</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
           {allServices.map((service, i) => (
             <ServiceItem key={i} {...service} index={i} />
           ))}
-          
-          {/* Compact CTA Slot */}
-          <div className="bg-gray-900 rounded-xl p-4 flex flex-col justify-center items-center text-center text-white group cursor-pointer hover:bg-green-600 transition-colors">
-            <Headphones size={20} className="mb-2 text-green-500 group-hover:text-white" />
-            <p className="text-[12px] font-bold uppercase tracking-tighter">Support 24/7</p>
-            <p className="text-[10px] text-gray-400 group-hover:text-green-50 mt-1">Get Expert Help</p>
-          </div>
         </div>
       </div>
     </section>
