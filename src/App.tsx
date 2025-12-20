@@ -9,8 +9,8 @@ import NotFound from "./pages/NotFound";
 import Services from "./pages/Services";
 
 // ✅ IMPORT FROM src/services
-import FCL from "./services/FCL";
-import LCL from "./services/LCL";
+import Fcl from "./services/FCL";
+import Lcl from "./services/LCL";
 import ThreePL from "./services/3PL";
 import ProjectCargo from "./services/ProjectCargo";
 import AirFreight from "./services/AirFreight";
@@ -29,8 +29,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/services" element={<Services />} />
 
-          <Route path="/services/fcl" element={<FCL />} />
-          <Route path="/services/lcl" element={<LCL />} />
+          <Route path="/services/fcl" element={<Fcl />} />
+          <Route path="/services/lcl" element={<Lcl />} />
           <Route path="/services/3pl" element={<ThreePL />} />
           <Route path="/services/project-cargo" element={<ProjectCargo />} />
           <Route path="/services/air-freight" element={<AirFreight />} />
