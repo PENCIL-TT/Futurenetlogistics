@@ -1,195 +1,190 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Plane, Ship, Truck, Warehouse, Package, Boxes } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [pathname]);
-  return null;
-};
+const Plane = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+  </svg>
+);
 
-type ServiceCardProps = {
-  icon: React.ReactNode;
-  title: string;
-  image?: string;
-  description?: string;
-  points?: string[];
-};
+const Anchor = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="5" r="3"/>
+    <line x1="12" y1="22" x2="12" y2="8"/>
+    <path d="M5 12H2a10 10 0 0 0 20 0h-3"/>
+  </svg>
+);
 
-const ServiceCard = ({ icon, title, description, points, image }: ServiceCardProps) => {
-  const getServiceImage = () => {
-    switch (title) {
-      case "Air Freight":
-        return "/aircargo2.png";
-      case "Sea Freight":
-        return "/oceanf.png";
-      case "Road Freight":
-        return "/CARGO.png";
-      case "Customs Clearance & Documentation":
-        return "/lovable-uploads/cc.jpg";
-      case "Warehousing & Distribution":
-        return "/warhouseh1.png";
-      case "Project Logistics":
-        return "/h4.png";
-      default:
-        return image || "/placeholder-service.jpg";
-    }
-  };
+const Package = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m7.5 4.27 9 5.15"/>
+    <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+    <path d="m3.3 7 8.7 5 8.7-5"/>
+    <path d="M12 22V12"/>
+  </svg>
+);
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group grid grid-cols-1 md:grid-cols-2"
-    >
-      <div className="w-full h-48 md:h-64">
-        <img
-          src={getServiceImage()}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-      </div>
-      <div className="p-6 flex flex-col justify-center">
-        <div className="bg-brand-navy text-brand-navy p-2 rounded-full inline-block mb-2 w-fit bg-white">
-          {icon}
-        </div>
-        <h3 className="text-xl font-semibold text-brand-navy mb-3">{title}</h3>
+const Warehouse = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/>
+    <path d="M6 18h12"/>
+    <path d="M6 14h12"/>
+    <rect width="12" height="12" x="6" y="10"/>
+  </svg>
+);
 
-        {points && points.length > 0 ? (
-          <ul className="text-gray-600 text-sm mb-4 list-disc pl-5 space-y-1">
-            {points.map((pt, idx) => (
-              <li key={idx}>{pt}</li>
-            ))}
-          </ul>
-        ) : (
-          description && (
-            <p className="text-gray-600 text-sm mb-4 line-clamp-4">{description}</p>
-          )
-        )}
-      </div>
-    </motion.div>
-  );
-};
+const Truck = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+    <path d="M15 18H9"/>
+    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+    <circle cx="17" cy="18" r="2"/>
+    <circle cx="7" cy="18" r="2"/>
+  </svg>
+);
+
+const Droplet = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+  </svg>
+);
 
 const ServicesSection = () => {
-  const services: ServiceCardProps[] = [
+  const row1 = [
     {
-      icon: <Plane className="w-5 h-5" />,
+      title: "LCL Services",
+      slug: "lcl-services",
+      icon: Anchor,
+      description: "Cost-effective consolidation solutions for small shipments with global reach.",
+    },
+    {
+      title: "FCL Services",
+      slug: "fcl-services",
+      icon: Anchor,
+      description: "Dedicated containers ensuring secure and reliable full-load transportation.",
+    },
+    {
       title: "Air Freight",
-      image: "/aircargo2.png",
-      points: [
-        "Express & deferred services",
-        "Airport-to-airport & door-to-door",
-        "Dangerous goods & temperature-sensitive cargo",
-      ],
+      slug: "air-freight",
+      icon: Plane,
+      description: "Fast airport-to-airport and door-to-door air cargo services worldwide.",
     },
     {
-      icon: <Ship className="w-5 h-5" />,
-      title: "Sea Freight",
-      image: "/oceanf.png",
-      points: [
-        "FCL / LCL shipping",
-        "Breakbulk and Ro-Ro solutions",
-        "Global consolidation services",
-      ],
-    },
-    {
-      icon: <Truck className="w-5 h-5" />,
-      title: "Road Freight",
-      image: "/CARGO.png",
-      points: [
-        "GCC distribution",
-        "Cross-border trucking",
-        "Last-mile delivery",
-      ],
-    },
-    {
-      icon: <Package className="w-5 h-5" />,
-      title: "Customs Clearance & Documentation",
-      image: "/lovable-uploads/cc.jpg",
-      points: [
-        "Import/export documentation",
-        "Free zone & mainland clearance",
-        "Compliance support",
-      ],
-    },
-    {
-      icon: <Warehouse className="w-5 h-5" />,
-      title: "Warehousing & Distribution",
-      image: "/warhouseh1.png",
-      points: [
-        "Bonded & non-bonded facilities",
-        "Inventory management",
-        "Value-added services",
-      ],
-    },
-    {
-      icon: <Boxes className="w-5 h-5" />,
-      title: "Project Logistics",
-      image: "/h4.png",
-      points: [
-        "Planning & Coordination: Scope assessment, multimodal transport, scheduling, and route surveys.",  
-        "Operations & Management: Cargo handling, on-site logistics, and execution.",
-        "Compliance & Support: Customs, HSE standards, and post-delivery support.",        
-      ],
+      title: "Project Cargo",
+      slug: "project-cargo",
+      icon: Package,
+      description: "Special handling for oversized, heavy-lift, and complex cargo movements.",
     },
   ];
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <ScrollToTop />
-      <Header />
+  const row2 = [
+    {
+      title: "Warehousing",
+      slug: "warehousing",
+      icon: Warehouse,
+      description: "Bonded and non-bonded storage facilities with inventory management.",
+    },
+    {
+      title: "3 PL",
+      slug: "3pl",
+      icon: Truck,
+      description: "End-to-end third-party logistics solutions for supply chain efficiency.",
+    },
+    {
+      title: "Liquid Transportation",
+      slug: "liquid-transportation",
+      icon: Droplet,
+      description: "Safe and compliant bulk liquid transport across domestic and global routes.",
+    },
+  ];
 
-      <main className="flex-grow pt-16 md:pt-20">
-        <section className="bg-gradient-to-r from-gray-900 to-brand-navy text-white relative overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="/lovable-uploads/gp.jpg"
-              alt="Services"
-              className="w-full h-full object-cover opacity-20"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-brand-navy opacity-90" />
-          </div>
+  const ServiceItem = ({ title, slug, icon: Icon, description, index }) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
 
-          <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <h1 className="text-2xl md:text-4xl font-bold mb-2 text-slate-50">
-                Our Logistics Services
-              </h1>
-              <div className="w-16 h-1 bg-white mx-auto mb-4"></div>
-              <p className="text-base md:text-lg text-white/90 mb-4">
-                From air and ocean freight to specialized transportation solutions, we offer end-to-end logistics
-                expertise to meet your global shipping needs.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => setIsVisible(true), index * 100);
+          }
+        },
+        { threshold: 0.1 }
+      );
 
-        <section className="py-12">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {services.map((service, idx) => (
-                <ServiceCard key={idx} {...service} />
-              ))}
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, [index]);
+
+    return (
+      <div
+        ref={ref}
+        className={`text-center p-6 group cursor-pointer transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
+        <div className="flex justify-center mb-6">
+          <div className="bg-green-600 p-6 rounded-2xl transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl group-hover:shadow-green-600/30">
+            <div className="text-white">
+              <Icon />
             </div>
           </div>
-        </section>
-      </main>
+        </div>
 
-      <Footer />
-    </div>
+        <h3 className="text-lg font-bold text-gray-900 mb-3 uppercase tracking-wide transition-colors duration-300 group-hover:text-green-600">
+          {title}
+        </h3>
+
+        <p className="text-base text-gray-600 leading-relaxed mb-6 transition-colors duration-300 group-hover:text-gray-800">
+          {description}
+        </p>
+
+        <button
+          onClick={() => alert(`Navigate to /services/${slug}`)}
+          className="text-base font-semibold text-green-600 hover:text-green-700 transition-all duration-300 inline-flex items-center gap-2 group-hover:gap-3"
+        >
+          Read More
+          <span className="inline-block transition-transform duration-300 group-hover:translate-x-2">
+            →
+          </span>
+        </button>
+      </div>
+    );
+  };
+
+  return (
+    <section className="bg-white py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Our Services
+          </h2>
+          <div className="w-20 h-1 bg-green-600 mx-auto rounded-full" />
+        </div>
+
+        {/* Row 1 - 4 services */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {row1.map((service, i) => (
+            <ServiceItem key={i} {...service} index={i} />
+          ))}
+        </div>
+
+        {/* Row 2 - 3 services centered */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl">
+            {row2.map((service, i) => (
+              <ServiceItem key={i} {...service} index={i + 4} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
