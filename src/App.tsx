@@ -9,8 +9,8 @@ import NotFound from "./pages/NotFound";
 import Services from "./pages/Services";
 
 // ✅ IMPORT FROM src/services
-import Fcl from "./src/services/FCL";
-import Lcl from "./src/services/LCL";
+import Fcl from "./src/services/Fcl";
+import Lcl from "./src/services/Lcl";
 import ThreePL from "./services/3PL";
 import ProjectCargo from "./services/ProjectCargo";
 import AirFreight from "./services/AirFreight";
