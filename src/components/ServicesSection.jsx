@@ -1,130 +1,202 @@
-import React from "react";
 
-// --- Stock Images & Content ---
-const SERVICES_DATA = {
-  row1: [
-    {
-      title: "Road Freight",
-      img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80&w=800",
-      description: "logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods.",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-green-600"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>,
-    },
-    {
-      title: "Ocean Freight",
-      img: "https://images.unsplash.com/photo-1494412574006-259124e39ecb?auto=format&fit=crop&q=80&w=800",
-      description: "logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods.",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-green-600"><path d="M2 21c.6.5 1.2 1 2.5 1 1.4 0 2.1-.5 3.5-1 1.4-.5 2.1-1 3.5-1 1.4 0 2.1.5 3.5 1 1.4.5 2.1 1 3.5 1 1.4 0 2.1-.5 3.5-1 .6-.5 1.2-1 2.5-1"/><path d="M19.38 20.51a11.93 11.93 0 0 0-1.22-4.43l1.1-1.12a1 1 0 0 0 .16-1.21L16.2 8.32a1 1 0 0 0-1.3-.41l-3.3 1.5-3.3-1.5a1 1 0 0 0-1.3.41L3.78 13.75a1 1 0 0 0 .16 1.21l1.1 1.12a11.95 11.95 0 0 0-1.22 4.43"/></svg>,
-    },
-    {
-      title: "Air Freight",
-      img: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&q=80&w=800",
-      description: "logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods.",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-green-600"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>,
-    },
-    {
-      title: "Project Cargo",
-      img: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
-      description: "logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods.",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-green-600"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg>,
-    },
-  ],
-  row2: [
-    {
-      title: "Warehousing",
-      img: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800",
-      description: "logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods.",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-green-600"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/></svg>,
-    },
-    {
-      title: "3 PL",
-      img: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&q=80&w=800",
-      description: "logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods.",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-green-600"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>,
-    },
-    {
-      title: "Liquid Transport",
-      img: "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=800",
-      description: "logistics company truly specializes in managing the transportation storage and distribution of basic logistics goods.",
-      icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="stroke-green-600"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>,
-    },
-  ],
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { Plane, Ship, Truck, Warehouse, Package, Boxes } from "lucide-react";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+  return null;
 };
 
-const ServiceCard = ({ title, img, description, icon }) => (
-  <div className="flex flex-col bg-white shadow-lg overflow-hidden h-full">
-    {/* Image container with fixed aspect ratio */}
-    <div className="relative h-56 w-full">
-      <img src={img} alt={title} className="w-full h-full object-cover" />
-    </div>
+type ServiceCardProps = {
+  icon: React.ReactNode;
+  title: string;
+  image?: string;
+  description?: string;
+  points?: string[];
+};
 
-    {/* Content Section - Using relative positioning for the icon to float */}
-    <div className="relative px-8 pb-10 flex-grow flex flex-col bg-white">
-      {/* Icon Box: Absolute positioned to sit exactly on the image/content line */}
-      <div className="absolute -top-7 left-6 z-10 bg-green-600 p-4 border-b-2 border-green-800 shadow-md">
-        <div className="text-white">
+const ServiceCard = ({ icon, title, description, points, image }: ServiceCardProps) => {
+  const getServiceImage = () => {
+    switch (title) {
+      case "Air Freight":
+        return "/aircargo2.png";
+      case "Sea Freight":
+        return "/oceanf.png";
+      case "Sea Freight":
+        return "/oceanf.png";
+      case "Road Freight":
+        return "/CARGO.png";
+      case "Customs Clearance & Documentation":
+        return "/lovable-uploads/cc.jpg";
+      case "Warehousing & Distribution":
+        return "/warhouseh1.png";
+      case "Project Logistics":
+        return "/h4.png"; // ✅ optional new image
+      default:
+        return image || "/placeholder-service.jpg";
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group grid grid-cols-1 md:grid-cols-2"
+    >
+      <div className="w-full h-48 md:h-64">
+        <img
+          src={getServiceImage()}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="p-6 flex flex-col justify-center">
+        <div className="bg-brand-navy text-brand-navy p-2 rounded-full inline-block mb-2 w-fit bg-white">
           {icon}
         </div>
-      </div>
+        <h3 className="text-xl font-semibold text-brand-navy mb-3">{title}</h3>
 
-      {/* Spacing div to prevent icon from overlapping text */}
-      <div className="pt-12">
-        <div className="w-12 h-1 bg-green-600 mb-6" />
-        <h3 className="text-xl font-extrabold text-gray-900 mb-4 uppercase tracking-tight">
-          {title}
-        </h3>
-        <p className="text-[15px] text-gray-500 leading-relaxed">
-          {description}
-        </p>
-      </div>
-      
-      {/* Optional Wave Background Pattern from original image */}
-      <div className="absolute bottom-0 right-0 opacity-10 pointer-events-none">
-        <svg width="80" height="60" viewBox="0 0 80 60"><path d="M0 60 Q 20 40 40 60 T 80 60" fill="none" stroke="gray" strokeWidth="1"/></svg>
-      </div>
-    </div>
-  </div>
-);
-
-const ServicesSection = () => {
-  return (
-    <section className="bg-gray-50 py-24 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Header matches image style */}
-        <div className="text-center mb-20">
-          <p className="text-green-600 font-bold uppercase tracking-[0.3em] text-xs mb-3">
-            Our Logistics Services! 🚚
-          </p>
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-            Offering Cost Efficient<br />
-            <span className="relative inline-block mt-2">
-              Transport Shipping!
-              <span className="absolute bottom-1 left-0 w-full h-1 bg-green-600"></span>
-            </span>
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto italic text-sm">
-            logistics company specializes in managing the transportation,<br /> 
-            storage and distribution of goods.
-          </p>
-        </div>
-
-        {/* First Row: 4 Items */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {SERVICES_DATA.row1.map((item, idx) => (
-            <ServiceCard key={idx} {...item} />
-          ))}
-        </div>
-
-        {/* Second Row: 3 Items Centered */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full lg:max-w-5xl">
-            {SERVICES_DATA.row2.map((item, idx) => (
-              <ServiceCard key={idx} {...item} />
+        {points && points.length > 0 ? (
+          <ul className="text-gray-600 text-sm mb-4 list-disc pl-5 space-y-1">
+            {points.map((pt, idx) => (
+              <li key={idx}>{pt}</li>
             ))}
-          </div>
-        </div>
+          </ul>
+        ) : (
+          description && (
+            <p className="text-gray-600 text-sm mb-4 line-clamp-4">{description}</p>
+          )
+        )}
       </div>
-    </section>
+    </motion.div>
   );
 };
 
-export default ServicesSection;
+const Services = () => {
+  const services: ServiceCardProps[] = [
+    {
+      icon: <Plane className="w-5 h-5" />,
+      title: "Air Freight",
+      image: "/aircargo2.png",
+      points: [
+        "Express & deferred services",
+        "Airport-to-airport & door-to-door",
+        "Dangerous goods & temperature-sensitive cargo",
+      ],
+    },
+    {
+      icon: <Ship className="w-5 h-5" />,
+      title: "Sea Freight",
+      image: "/oceanf.png",
+      points: [
+        "FCL / LCL shipping",
+        "Breakbulk and Ro-Ro solutions",
+        "Global consolidation services",
+      ],
+    },
+    {
+      icon: <Truck className="w-5 h-5" />,
+      title: "Road Freight",
+      image: "/CARGO.png",
+      points: [
+        "GCC distribution",
+        "Cross-border trucking",
+        "Last-mile delivery",
+      ],
+    },
+    {
+      icon: <Package className="w-5 h-5" />,
+      title: "Customs Clearance & Documentation",
+      image: "/lovable-uploads/cc.jpg",
+      points: [
+        "Import/export documentation",
+        "Free zone & mainland clearance",
+        "Compliance support",
+      ],
+    },
+    {
+      icon: <Warehouse className="w-5 h-5" />,
+      title: "Warehousing & Distribution",
+      image: "/warhouseh1.png",
+      points: [
+        "Bonded & non-bonded facilities",
+        "Inventory management",
+        "Value-added services",
+      ],
+    },
+    // ✅ NEW SERVICE
+    {
+      icon: <Boxes className="w-5 h-5" />,
+      title: "Project Logistics",
+      image: "/h4.png",
+      points: [
+        "Planning & Coordination: Scope assessment, multimodal transport, scheduling, and route surveys.",  
+        "Operations & Management: Cargo handling, on-site logistics, and execution.",
+        "Compliance & Support: Customs, HSE standards, and post-delivery support.",        
+      ],
+    },
+  ];
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
+      <Header />
+
+      <main className="flex-grow pt-16 md:pt-20">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-gray-900 to-brand-navy text-white relative overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/lovable-uploads/gp.jpg"
+              alt="Services"
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-brand-navy opacity-90" />
+          </div>
+
+          <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center max-w-3xl mx-auto"
+            >
+              <h1 className="text-2xl md:text-4xl font-bold mb-2 text-slate-50">
+                Our Logistics Services
+              </h1>
+              <div className="w-16 h-1 bg-white mx-auto mb-4"></div>
+              <p className="text-base md:text-lg text-white/90 mb-4">
+                From air and ocean freight to specialized transportation solutions, we offer end-to-end logistics
+                expertise to meet your global shipping needs.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Services List */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {services.map((service, idx) => (
+                <ServiceCard key={idx} {...service} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Services;
