@@ -19,7 +19,6 @@ const Index = () => {
         <ServicesSection />
         <VisionMission />
         <CoreValues />
-        <ValuePropositions />
         <Contact />
       </main>
       <Footer />
