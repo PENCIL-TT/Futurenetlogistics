@@ -1,35 +1,27 @@
-import React from 'react';
+import React from "react";
 import {
   Award,
   BookOpenCheck,
   Handshake,
-  Lightbulb
-} from 'lucide-react';
+  Lightbulb,
+} from "lucide-react";
 
 const CoreValues = () => {
-  const bulletPoints = [
-    "Integrated multi logistics platforms",
-    "Live end to end supply chain visibility",
-    "Customized portals to customer communications",
-    "Tools to automate customer communications",
-    "Real time business intelligence and reporting",
-  ];
-
   const values = [
     {
-      title: 'Strive for excellence',
+      title: "Strive for excellence",
       icon: Award,
     },
     {
-      title: 'Adapt, learn & assimilate the best industry practices',
+      title: "Adapt, learn & assimilate the best industry practices",
       icon: BookOpenCheck,
     },
     {
-      title: 'Open & honest relationship with communications',
+      title: "Open & honest relationship with communications",
       icon: Handshake,
     },
     {
-      title: 'Embrace innovation',
+      title: "Embrace innovation",
       icon: Lightbulb,
     },
   ];
@@ -44,30 +36,22 @@ const CoreValues = () => {
           {/* LEFT TEXT */}
           <div className="space-y-8">
 
-            {/* HEADING — HIGHLIGHTED */}
+            {/* NEW HEADING */}
             <h3 className="text-2xl md:text-3xl font-extrabold text-blue-900 tracking-tight">
-              OGL - Digital Logistics
+              Excellent Solution For Your Business
             </h3>
 
-            {/* DESCRIPTION */}
+            {/* NEW DESCRIPTION */}
             <p className="text-lg text-gray-700 leading-relaxed max-w-xl">
-              It's our solution-based logistics services coupled with the best
-              technology that makes us stand out. We believe in providing the
-              right services using the right tools at the right time.
+              We believe in establishing strong partnerships and close working
+              relationships with our customers to produce a comprehensive total
+              supply chain management service. We continuously provide
+              cost-effective transportation and logistics solutions to our
+              broad and varied customer base. Through our customer portal and
+              partner portal, we are able to provide integrated processes with
+              our clients systems which ensures total visibility and
+              transparency.
             </p>
-
-            {/* BULLETS */}
-            <ul className="space-y-4 pt-2">
-              {bulletPoints.map((point, idx) => (
-                <li
-                  key={idx}
-                  className="flex items-start text-lg text-gray-800"
-                >
-                  <span className="mt-2 w-2.5 h-2.5 bg-blue-900 rounded-full mr-4 flex-shrink-0" />
-                  {point}
-                </li>
-              ))}
-            </ul>
 
           </div>
 
