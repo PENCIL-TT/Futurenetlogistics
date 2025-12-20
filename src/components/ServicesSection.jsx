@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -29,8 +28,6 @@ const ServiceCard = ({ icon, title, description, points, image }: ServiceCardPro
         return "/aircargo2.png";
       case "Sea Freight":
         return "/oceanf.png";
-      case "Sea Freight":
-        return "/oceanf.png";
       case "Road Freight":
         return "/CARGO.png";
       case "Customs Clearance & Documentation":
@@ -38,7 +35,7 @@ const ServiceCard = ({ icon, title, description, points, image }: ServiceCardPro
       case "Warehousing & Distribution":
         return "/warhouseh1.png";
       case "Project Logistics":
-        return "/h4.png"; // ✅ optional new image
+        return "/h4.png";
       default:
         return image || "/placeholder-service.jpg";
     }
@@ -81,7 +78,7 @@ const ServiceCard = ({ icon, title, description, points, image }: ServiceCardPro
   );
 };
 
-const Services = () => {
+const ServicesSection = () => {
   const services: ServiceCardProps[] = [
     {
       icon: <Plane className="w-5 h-5" />,
@@ -133,7 +130,6 @@ const Services = () => {
         "Value-added services",
       ],
     },
-    // ✅ NEW SERVICE
     {
       icon: <Boxes className="w-5 h-5" />,
       title: "Project Logistics",
@@ -152,7 +148,6 @@ const Services = () => {
       <Header />
 
       <main className="flex-grow pt-16 md:pt-20">
-        {/* Hero Section */}
         <section className="bg-gradient-to-r from-gray-900 to-brand-navy text-white relative overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
@@ -182,7 +177,6 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Services List */}
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -199,4 +193,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesSection;
