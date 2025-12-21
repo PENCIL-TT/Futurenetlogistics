@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { motion } from 'framer-motion';
 import { Plane, Clock, Globe, Headset } from "lucide-react";
 import { Link } from 'react-router-dom';
