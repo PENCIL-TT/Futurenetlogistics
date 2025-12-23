@@ -24,7 +24,6 @@ const App = () => (
         </Routes>
         <Routes>
          <Route path="/pages/Fcl" element={<Home />} />
-         <Route path="/newpage" element={<NewPage />} />
         </Routes>
 
       </BrowserRouter>
